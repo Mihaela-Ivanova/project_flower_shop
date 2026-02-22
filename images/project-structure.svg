@@ -1,0 +1,56 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#F7F2FA"/>
+
+  <rect x="80" y="60" width="640" height="90" rx="12" fill="#E8D9F1"/>
+  <text x="400" y="120" font-family="Arial" font-size="36" fill="#4A3B5A" text-anchor="middle">
+    PROJECT STRUCTURE
+  </text>
+
+  <rect x="80" y="180" width="640" height="540" rx="16" fill="#FFFFFF" stroke="#D8C7E8" stroke-width="3"/>
+
+  <text x="120" y="240" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    Project/
+  </text>
+
+  <text x="160" y="280" font-family="Consolas" font-size="20" fill="#6A5A78">
+    │ manage.py
+  </text>
+  <text x="160" y="310" font-family="Consolas" font-size="20" fill="#6A5A78">
+    │ README.md
+  </text>
+  <text x="160" y="340" font-family="Consolas" font-size="20" fill="#6A5A78">
+    │ requirements.txt
+  </text>
+
+  <text x="120" y="380" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    ├── Project/   # Django configuration
+  </text>
+
+  <text x="160" y="415" font-family="Consolas" font-size="20" fill="#6A5A78">
+    ├── settings.py
+  </text>
+  <text x="160" y="445" font-family="Consolas" font-size="20" fill="#6A5A78">
+    ├── urls.py
+  </text>
+  <text x="160" y="475" font-family="Consolas" font-size="20" fill="#6A5A78">
+    └── wsgi.py
+  </text>
+
+  <text x="120" y="520" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    ├── products/   # Products, categories, orders
+  </text>
+
+  <text x="160" y="555" font-family="Consolas" font-size="20" fill="#6A5A78">
+    ├── models.py
+  </text>
+  <text x="160" y="585" font-family="Consolas" font-size="20" fill="#6A5A78">
+    ├── views.py
+  </text>
+  <text x="160" y="615" font-family="Consolas" font-size="20" fill="#6A5A78">
+    └── urls.py
+  </text>
+
+  <text x="120" y="660" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    └── templates/   # HTML templates
+  </text>
+</svg>

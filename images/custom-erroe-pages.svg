@@ -1,0 +1,47 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#F7F4FA"/>
+
+  <!-- Header -->
+  <rect x="80" y="60" width="640" height="90" rx="12" fill="#E6D7F2"/>
+  <text x="400" y="120" font-family="Arial" font-size="36" fill="#4A3B5A" text-anchor="middle">
+    CUSTOM ERROR PAGES
+  </text>
+
+  <!-- Main box -->
+  <rect x="80" y="180" width="640" height="540" rx="16" fill="#FFFFFF" stroke="#D8C7E8" stroke-width="3"/>
+
+  <!-- 404 Section -->
+  <text x="120" y="250" font-family="Arial" font-size="28" fill="#4A3B5A">
+    404 — Not Found
+  </text>
+
+  <rect x="120" y="270" width="560" height="70" rx="10" fill="#F0E7F8"/>
+  <text x="140" y="310" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    templates/404.html
+  </text>
+
+  <rect x="120" y="350" width="560" height="70" rx="10" fill="#F0E7F8"/>
+  <text x="140" y="390" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    handler404 = 'products.views.custom_404'
+  </text>
+
+  <!-- 500 Section -->
+  <text x="120" y="460" font-family="Arial" font-size="28" fill="#4A3B5A">
+    500 — Server Error
+  </text>
+
+  <rect x="120" y="480" width="560" height="70" rx="10" fill="#F0E7F8"/>
+  <text x="140" y="520" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    templates/500.html
+  </text>
+
+  <rect x="120" y="560" width="560" height="70" rx="10" fill="#F0E7F8"/>
+  <text x="140" y="600" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    handler500 = 'products.views.custom_500'
+  </text>
+
+  <!-- Footer -->
+  <text x="120" y="680" font-family="Arial" font-size="22" fill="#6A5A78">
+    Both pages are fully customized and styled consistently.
+  </text>
+</svg>

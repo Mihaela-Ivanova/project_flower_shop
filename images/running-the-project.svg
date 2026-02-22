@@ -1,0 +1,47 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" fill="#F7F4FA"/>
+
+  <!-- Header -->
+  <rect x="80" y="60" width="640" height="90" rx="12" fill="#E6D7F2"/>
+  <text x="400" y="120" font-family="Arial" font-size="36" fill="#4A3B5A" text-anchor="middle">
+    RUNNING THE PROJECT
+  </text>
+
+  <!-- Main box -->
+  <rect x="80" y="180" width="640" height="540" rx="16" fill="#FFFFFF" stroke="#D8C7E8" stroke-width="3"/>
+
+  <!-- Step 1 -->
+  <text x="120" y="250" font-family="Arial" font-size="26" fill="#4A3B5A">
+    1) Activate virtual environment
+  </text>
+  <rect x="120" y="270" width="560" height="60" rx="10" fill="#F0E7F8"/>
+  <text x="140" y="310" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    .venv\Scripts\activate
+  </text>
+
+  <!-- Step 2 -->
+  <text x="120" y="360" font-family="Arial" font-size="26" fill="#4A3B5A">
+    2) Install dependencies
+  </text>
+  <rect x="120" y="380" width="560" height="60" rx="10" fill="#F0E7F8"/>
+  <text x="140" y="420" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    pip install -r requirements.txt
+  </text>
+
+  <!-- Step 3 -->
+  <text x="120" y="470" font-family="Arial" font-size="26" fill="#4A3B5A">
+    3) Start development server
+  </text>
+  <rect x="120" y="490" width="560" height="60" rx="10" fill="#F0E7F8"/>
+  <text x="140" y="530" font-family="Consolas" font-size="22" fill="#4A3B5A">
+    python manage.py runserver
+  </text>
+
+  <!-- URL -->
+  <text x="120" y="600" font-family="Arial" font-size="24" fill="#4A3B5A">
+    Application available at:
+  </text>
+  <text x="120" y="635" font-family="Consolas" font-size="24" fill="#6A5A78">
+    http://127.0.0.1:8000/
+  </text>
+</svg>
