@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load product_filters %}
+
+{% block title %}Delete Product{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center text-danger mb-4">Delete Product</h1>
+
+<div class="container" style="max-width: 600px;">
+
+    <div style="
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        text-align: center;
+    ">
+
+        <p style="font-size: 18px; color: #5a4a42;">
+            Are you sure you want to delete the product
+            <strong style="color: var(--dark-pink);">{{ flower.name }}</strong>?
+        </p>
+
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+
+            <button class="btn" style="background: #b85a6c;" type="submit">
+                Yes, delete
+            </button>
+
+            <a href="{% url 'products' %}" class="btn" style="background: #d67a92;">
+                Cancel
+            </a>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

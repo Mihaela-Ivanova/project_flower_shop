@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-4">Our Products</h1>
+
+<div class="text-center mb-4">
+    <a href="{% url 'flower_create' %}" class="btn btn-pink">Add Product</a>
+</div>
+
+<div class="row">
+    {% for flower in flowers %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                {% if flower.photo %}
+                    <img src="{{ flower.photo.url }}" class="card-img-top" alt="{{ flower.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ flower.name }}</h5>
+                    <p class="card-text">{{ flower.price }} BGN</p>
+                    <a href="{% url 'product_details' flower.pk %}" class="btn btn-sm btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">No products added yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center text-danger mb-4">Categories</h1>
+
+<p class="text-center mb-4" style="max-width: 700px; margin: auto;">
+    Explore our categories and discover the flowers that best match your style and mood.
+</p>
+
+<div class="text-center mb-4">
+    <a href="{% url 'category_create' %}" class="btn">Add Category</a>
+</div>
+
+<div class="product-grid">
+
+    {% for category in categories %}
+    <div class="product-card">
+
+        <h3 class="mt-2" style="color: var(--dark-pink); font-weight: 600;">
+            {{ category.name }}
+        </h3>
+
+        <p style="color: #5a4a42; min-height: 60px;">
+            {{ category.description|default:"No description available" }}
+        </p>
+
+        <p class="mt-2">
+            <strong>Products:</strong> {{ category.flowers.count }}
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+            <a href="{% url 'category_edit' category.pk %}" class="btn" style="background: #d67a92;">Edit</a>
+            <a href="{% url 'category_delete' category.pk %}" class="btn" style="background: #b85a6c;">Delete</a>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

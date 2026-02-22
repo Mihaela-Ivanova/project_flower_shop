@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center text-danger mb-4">Contact Us</h1>
+
+<p class="text-center mb-4" style="max-width: 700px; margin: auto;">
+    We would be happy to assist you with an order, a question, or a special request.
+    Our team of floral designers is here to bring beauty into your day.
+</p>
+
+<div class="container" style="max-width: 900px; margin-top: 40px;">
+
+    <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+
+        <!-- CONTACT INFO -->
+        <div style="
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        ">
+            <h3 class="text-danger mb-3">Contact Information</h3>
+
+            <p><strong>Address:</strong> 12 Tsvetna Street, Sofia</p>
+            <p><strong>Phone:</strong> +359 888 123 456</p>
+            <p><strong>Email:</strong> flowershop@example.com</p>
+
+            <p class="mt-3">
+                Working Hours:<br>
+                Mon–Fri: 09:00 – 19:00<br>
+                Saturday: 10:00 – 17:00<br>
+                Sunday: Closed
+            </p>
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div style="
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        ">
+            <h3 class="text-danger mb-3">Send Us a Message</h3>
+
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea rows="4" placeholder="Your Message"></textarea>
+
+                <button class="btn mt-2" type="button">Send</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
