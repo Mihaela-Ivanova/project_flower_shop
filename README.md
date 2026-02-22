@@ -1,8 +1,8 @@
-🌸 FlowerShop — Modern Django Web Application
+# 🌸 FlowerShop — Modern Django Web Application
 FlowerShop is a modern Django web application designed as an online flower shop.
 The project includes a product catalog, categories, product details, order creation, user accounts, and a clean, elegant interface.
 
-✨ Key Features
+# ✨ Key Features
 🏠 Public Section
 - Home page with store presentation
 - Product listing
@@ -10,18 +10,18 @@ The project includes a product catalog, categories, product details, order creat
 - Category browsing and filtering
 - Contact page
 
-👤 User Management
+# 👤 User Management
 - User registration
 - Login
 - User profile
 - Logout
 
-🗂️ Administration
+# 🗂️ Administration
 - Full CRUD for products
 - Full CRUD for categories
 - Media file management (images)
 
-🧱 Technologies Used
+# 🧱 Technologies Used
 - Python 3
 - Django
 - HTML5 / CSS3
@@ -30,101 +30,20 @@ The project includes a product catalog, categories, product details, order creat
 - Django Templates
 - Static & Media file handling
 
+# 📁 PROJECT STRUCTURE
 
-┌──────────────────────────────────────────────────────────────┐
-│                       PROJECT STRUCTURE                       │
-└──────────────────────────────────────────────────────────────┘
+    <img src="images/project-structure.svg" width="400">
 
-Project/
-│  manage.py
-│  README.md
-│  requirements.txt
-│
-├── Project/                     # Django configuration
-│     ├── settings.py
-│     ├── urls.py
-│     └── wsgi.py
-│
-├── products/                    # Products, categories, orders
-│     ├── models.py
-│     ├── views.py
-│     └── urls.py
-│
-├── account/                     # Authentication, profiles
-│     ├── views.py
-│     └── urls.py
-│
-├── common/                      # Home, static pages
-│     ├── views.py
-│     └── urls.py
-│
-├── static/                      # CSS, JS, images
-│     └── css/
-│         └── style.css
-│
-├── media/                       # Uploaded images
-│     └── flowers/
-│
-└── templates/                   # HTML templates
-      ├── base.html
-      ├── home.html
-      ├── 404.html
-      ├── 500.html
-      ├── products/
-      └── account/
+# ▶️ RUNNING THE PROJECT
 
-┌──────────────────────────────────────────────────────────────┐
-│                        RUNNING THE PROJECT                    │
-└──────────────────────────────────────────────────────────────┘
+    <img src="images/running-the-project.svg" width="400">
 
-1) Activate virtual environment
-   -------------------------------------------------------------
-   .venv\Scripts\activate
-   -------------------------------------------------------------
+#❗CUSTOM ERROR PAGES
 
-2) Install dependencies
-   -------------------------------------------------------------
-   pip install -r requirements.txt
-   -------------------------------------------------------------
+    <img src="images/custom-error-pages.svg" width="400">
 
-3) Start development server
-   -------------------------------------------------------------
-   python manage.py runserver
-   -------------------------------------------------------------
+# 👤 AUTHOR
 
-Application available at:
-http://127.0.0.1:8000/
+    <img src="images/author.svg" width="400">
 
-┌──────────────────────────────────────────────────────────────┐
-│                        CUSTOM ERROR PAGES                     │
-└──────────────────────────────────────────────────────────────┘
-
-404 Not Found Page:
-   templates/404.html
-   handler404 = 'products.views.custom_404'
-
-500 Internal Server Error Page:
-   templates/500.html
-   handler500 = 'products.views.custom_500'
-
-Both pages:
-   - Fully customized
-   - Integrated into Django routing
-   - Styled consistently with the project
-
-┌──────────────────────────────────────────────────────────────┐
-│                              AUTHOR                           │
-└──────────────────────────────────────────────────────────────┘
-
-Project developed by:
-   Mihaela Ivanova
-
-Focus areas:
-   - Web Development
-   - Django Applications
-   - UI/UX Design
-   - Clean and maintainable code
-
-This project is built with precision, structure,
-and attention to detail.
 
