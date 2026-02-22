@@ -32,18 +32,16 @@ The project includes a product catalog, categories, product details, order creat
 
 # 📁 PROJECT STRUCTURE
 
-    <img src="images/project-structure.svg" width="400">
+<img src="images/project-structure.svg" width="400">
 
 # ▶️ RUNNING THE PROJECT
 
-    <img src="images/running-the-project.svg" width="400">
+<img src="images/running-the-project.svg" width="400">
 
-#❗CUSTOM ERROR PAGES
+# ❗ CUSTOM ERROR PAGES
 
-    <img src="images/custom-error-pages.svg" width="400">
+<img src="images/custom-error-pages.svg" width="400">
 
 # 👤 AUTHOR
 
-    <img src="images/author.svg" width="400">
-
-
+<img src="images/author.svg" width="400">
