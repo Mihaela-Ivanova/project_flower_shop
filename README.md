@@ -1,8 +1,8 @@
-🌸 FlowerShop — Modern Django Web Application
+# 🌸 FlowerShop — Modern Django Web Application
 FlowerShop is a modern Django web application designed as an online flower shop.
 The project includes a product catalog, categories, product details, order creation, user accounts, and a clean, elegant interface.
 
-✨ Key Features
+# ✨ Key Features
 🏠 Public Section
 - Home page with store presentation
 - Product listing
@@ -10,18 +10,18 @@ The project includes a product catalog, categories, product details, order creat
 - Category browsing and filtering
 - Contact page
 
-👤 User Management
+# 👤 User Management
 - User registration
 - Login
 - User profile
 - Logout
 
-🗂️ Administration
+# 🗂️ Administration
 - Full CRUD for products
 - Full CRUD for categories
 - Media file management (images)
 
-🧱 Technologies Used
+# 🧱 Technologies Used
 - Python 3
 - Django
 - HTML5 / CSS3
@@ -30,11 +30,7 @@ The project includes a product catalog, categories, product details, order creat
 - Django Templates
 - Static & Media file handling
 
-
-┌──────────────────────────────────────────────────────────────┐
-│                       PROJECT STRUCTURE                       │
-└──────────────────────────────────────────────────────────────┘
-
+  # PROJECT STRUCTURE
 Project/
 │  manage.py
 │  README.md
@@ -73,9 +69,7 @@ Project/
       ├── products/
       └── account/
 
-┌──────────────────────────────────────────────────────────────┐
-│                        RUNNING THE PROJECT                    │
-└──────────────────────────────────────────────────────────────┘
+# RUNNING THE PROJECT
 
 1) Activate virtual environment
    -------------------------------------------------------------
@@ -95,9 +89,7 @@ Project/
 Application available at:
 http://127.0.0.1:8000/
 
-┌──────────────────────────────────────────────────────────────┐
-│                        CUSTOM ERROR PAGES                     │
-└──────────────────────────────────────────────────────────────┘
+# CUSTOM ERROR PAGES
 
 404 Not Found Page:
    templates/404.html
@@ -112,9 +104,7 @@ Both pages:
    - Integrated into Django routing
    - Styled consistently with the project
 
-┌──────────────────────────────────────────────────────────────┐
-│                              AUTHOR                           │
-└──────────────────────────────────────────────────────────────┘
+# AUTHOR
 
 Project developed by:
    Mihaela Ivanova
