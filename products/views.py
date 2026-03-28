@@ -1,102 +1,90 @@
 from django.contrib import messages
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Flower, Category
-from .forms import FlowerForm, CategoryForm, OrderForm, CategoryDeleteForm
+from django.urls import reverse_lazy
+from django.views.generic import (
+    ListView, DetailView,
+    CreateView, UpdateView, DeleteView
+)
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin, PermissionRequiredMixin
+)
+from django.shortcuts import render
+from .models import Flower, Category, Order
+from .forms import (
+    FlowerForm, CategoryForm,
+    OrderForm, CategoryDeleteForm
+)
+
+class FlowerListView(ListView):
+    model = Flower
+    template_name = 'products/product_list.html'
+    context_object_name = 'flowers'
 
 
-def product_list(request:HttpRequest) -> HttpResponse:
-    flowers = Flower.objects.all()
-    return render(request, 'products/product_list.html', {'flowers': flowers})
-
-def product_details(request, pk):
-    product = get_object_or_404(Flower, pk=pk)
-    return render(request, 'products/product_details.html', {'product': product})
-def flower_create(request):
-    if request.method == 'POST':
-        form = FlowerForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('products')
-    else:
-        form = FlowerForm()
-
-    return render(request, 'products/flower_form.html', {'form': form})
+class FlowerDetailView(DetailView):
+    model = Flower
+    template_name = 'products/product_details.html'
+    context_object_name = 'product'
 
 
-def flower_edit(request, pk):
-    flower = get_object_or_404(Flower, pk=pk)
-
-    if request.method == 'POST':
-        form = FlowerForm(request.POST, request.FILES, instance=flower)
-        if form.is_valid():
-            form.save()
-            return redirect('product_details', pk=pk)
-    else:
-        form = FlowerForm(instance=flower)
-
-    return render(request, 'products/flower_form.html', {'form': form})
+class FlowerCreateView(PermissionRequiredMixin, CreateView):
+    model = Flower
+    form_class = FlowerForm
+    template_name = 'products/flower_form.html'
+    permission_required = 'products.add_flower'
+    success_url = reverse_lazy('products')
 
 
-def flower_delete(request, pk):
-    flower = get_object_or_404(Flower, pk=pk)
+class FlowerUpdateView(PermissionRequiredMixin, UpdateView):
+    model = Flower
+    form_class = FlowerForm
+    template_name = 'products/flower_form.html'
+    permission_required = 'products.change_flower'
 
-    if request.method == 'POST':
-        flower.delete()
-        return redirect('products')
+    def get_success_url(self):
+        return reverse_lazy('product_details', kwargs={'pk': self.object.pk})
 
-    return render(request, 'products/flower_confirm_delete.html', {'flower': flower})
+class FlowerDeleteView(PermissionRequiredMixin, DeleteView):
+    model = Flower
+    template_name = 'products/flower_confirm_delete.html'
+    permission_required = 'products.delete_flower'
+    success_url = reverse_lazy('products')
 
-def category_list(request):
-    categories = Category.objects.all()
-    return render(request, 'products/category_list.html', {'categories': categories})
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'products/category_list.html'
+    context_object_name = 'categories'
 
-def category_create(request):
-    if request.method == 'POST':
-        form = CategoryForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('category_list')
-    else:
-        form = CategoryForm()
+class CategoryCreateView(PermissionRequiredMixin, CreateView):
+    model = Category
+    form_class = CategoryForm
+    template_name = 'products/category_form.html'
+    permission_required = 'products.add_category'
+    success_url = reverse_lazy('category_list')
 
-    return render(request, 'products/category_form.html', {'form': form})
+class CategoryUpdateView(PermissionRequiredMixin, UpdateView):
+    model = Category
+    form_class = CategoryForm
+    template_name = 'products/category_form.html'
+    permission_required = 'products.change_category'
+    success_url = reverse_lazy('category_list')
 
 
-def category_edit(request, pk):
-    category = get_object_or_404(Category, pk=pk)
+class CategoryDeleteView(PermissionRequiredMixin, DeleteView):
+    model = Category
+    form_class = CategoryDeleteForm
+    template_name = 'products/category_confirm_delete.html'
+    permission_required = 'products.delete_category'
+    success_url = reverse_lazy('category_list')
 
-    if request.method == 'POST':
-        form = CategoryForm(request.POST, instance=category)
-        if form.is_valid():
-            form.save()
-            return redirect('category_list')
-    else:
-        form = CategoryForm(instance=category)
+class OrderCreateView(CreateView):
+    model = Order
+    form_class = OrderForm
+    template_name = 'products/order_form.html'
+    success_url = reverse_lazy('order_create')
 
-    return render(request, 'products/category_form.html', {'form': form})
-
-def category_delete(request, pk):
-    category = get_object_or_404(Category, pk=pk)
-
-    if request.method == "POST":
-        category.delete()
-        return redirect("category_list")
-
-    form = CategoryDeleteForm(instance=category)
-    return render(request, "products/category_confirm_delete.html", {"form": form, "category": category})
-def order_create(request):
-    if request.method == 'POST':
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Вашата поръчка беше изпратена успешно!")
-            return redirect('order_create')
-    else:
-        form = OrderForm()
-
-    return render(request, 'order_form.html', {'form': form})
-
+    def form_valid(self, form):
+        messages.success(self.request, "Вашата поръчка беше изпратена успешно!")
+        return super().form_valid(form)
 
 def custom_404(request, exception):
     return render(request, '404.html', status=404)

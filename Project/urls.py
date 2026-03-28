@@ -10,6 +10,8 @@ urlpatterns = [
     path('accounts/', include('account.urls')),
     path('products/', include('products.urls')),
     path('order/', order_create, name='order_create'),
+    path('api/', include('products.api.urls')),
+
 ]
 
 handler404 = 'products.views.custom_404'
