@@ -13,6 +13,8 @@ from .forms import (
     FlowerForm, CategoryForm,
     OrderForm, CategoryDeleteForm
 )
+from .tasks import send_order_confirmation_email
+
 
 class FlowerListView(ListView):
     model = Flower
@@ -85,6 +87,25 @@ class OrderCreateView(CreateView):
     def form_valid(self, form):
         messages.success(self.request, "Вашата поръчка беше изпратена успешно!")
         return super().form_valid(form)
+
+class OrderCreateView(CreateView):
+    model = Order
+    form_class = OrderForm
+    template_name = 'products/order_form.html'
+    success_url = reverse_lazy('order_create')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+
+        # Trigger async task
+        send_order_confirmation_email.delay(
+            self.object.customer_email,
+            self.object.customer_name,
+            self.object.id
+        )
+
+        messages.success(self.request, "Вашата поръчка беше изпратена успешно!")
+        return response
 
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
