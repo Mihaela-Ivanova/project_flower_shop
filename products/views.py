@@ -11,7 +11,7 @@ from django.shortcuts import render
 from .models import Flower, Category, Order
 from .forms import (
     FlowerForm, CategoryForm,
-    OrderForm, CategoryDeleteForm
+    OrderForm, CategoryDeleteForm, SearchForm, ReviewForm
 )
 from .tasks import send_order_confirmation_email
 
@@ -21,11 +21,31 @@ class FlowerListView(ListView):
     template_name = 'products/product_list.html'
     context_object_name = 'flowers'
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get('query')
+
+        if query:
+            queryset = queryset.filter(name__icontains=query)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['search_form'] = SearchForm(self.request.GET)
+        return context
+
 
 class FlowerDetailView(DetailView):
     model = Flower
     template_name = 'products/product_details.html'
     context_object_name = 'product'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['review_form'] = ReviewForm()
+        return context
+
 
 
 class FlowerCreateView(PermissionRequiredMixin, CreateView):

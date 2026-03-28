@@ -31,6 +31,10 @@
             <a href="/accounts/login/">Login</a>
             <a href="/accounts/register/">Register</a>
         {% endif %}
+
+        {% if user.is_authenticated and user.groups.first.name == "Store Managers" %}
+            <a href="{% url 'flower_create' %}">Add Flower</a>
+        {% endif %}
     </nav>
 </header>
 

@@ -1,0 +1,16 @@
+<div class="container mt-4">
+
+    <h2>{{ flower.name }}</h2>
+    <p>{{ flower.description }}</p>
+    <p><strong>Price:</strong> {{ flower.price }} лв.</p>
+
+    <hr>
+
+    <h4>Leave a Review</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <button class="btn btn-success">Submit</button>
+    </form>
+
+</div>

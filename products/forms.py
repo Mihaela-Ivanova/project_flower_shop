@@ -1,5 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
+
+from account.models import Profile
 from .models import Flower, Order, Category
 
 
@@ -139,3 +141,45 @@ class CategoryDeleteForm(forms.ModelForm):
         for field in self.fields.values():
             field.widget.attrs["readonly"] = True
             field.widget.attrs["disabled"] = True
+
+class SearchForm(forms.Form):
+    query = forms.CharField(
+        max_length=50,
+        required=False,
+        label='',
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Search flowers...',
+            'class': 'form-control'
+        })
+    )
+
+
+class ReviewForm(forms.Form):
+    rating = forms.ChoiceField(
+        choices=[(i, str(i)) for i in range(1, 6)],
+        label="Rating",
+        widget=forms.Select(attrs={'class': 'form-select'})
+    )
+    comment = forms.CharField(
+        max_length=300,
+        required=False,
+        widget=forms.Textarea(attrs={
+            'placeholder': 'Write your review...',
+            'class': 'form-control',
+            'rows': 3
+        })
+    )
+
+class ProfileForm(forms.ModelForm):
+    email = forms.EmailField(disabled=True)
+
+    class Meta:
+        model = Profile
+        fields = ['email', 'first_name', 'last_name', 'phone']
+
+class OrderForm(forms.ModelForm):
+    user = forms.CharField(disabled=True)
+
+    class Meta:
+        model = Order
+        fields = ['user', 'address', 'notes']

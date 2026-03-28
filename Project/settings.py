@@ -18,7 +18,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 PROJECT_APPS = [
-    'account',
     'common',
     'products',
 ]
@@ -31,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'project_flower_shop.apps.ProjectFlowerShopConfig',
+    'account.apps.AccountConfig',
 ] + PROJECT_APPS
 
 MIDDLEWARE = [
