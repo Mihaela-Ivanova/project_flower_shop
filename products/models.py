@@ -109,6 +109,11 @@ class Order(models.Model):
         auto_now_add=True
     )
 
+    notes = models.TextField(
+        blank=True,
+        null=True,
+    )
+
     def __str__(self):
         return f"Order {self.id}"
 
