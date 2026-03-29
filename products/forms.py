@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 from account.models import Profile
-from .models import Flower, Order, Category
+from .models import Flower, Order, Category, OrderItem, Tag
 
 
 class FlowerForm(forms.ModelForm):
@@ -38,65 +38,30 @@ class FlowerForm(forms.ModelForm):
 
 
 class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = [
+            'customer_name',
+            'customer_email',
+            'customer_phone',
+            'address',
+            'notes',
+        ]
+        widgets = {
+            'customer_email': forms.EmailInput(attrs={'readonly': 'readonly'}),
+        }
+
     def clean_customer_name(self):
         name = self.cleaned_data.get('customer_name')
-        if not name:
-            raise ValidationError("Please enter a name.")
-        elif len(name) < 2:
+        if len(name) < 2:
             raise ValidationError("The name must be at least 2 characters long.")
         return name
 
     def clean_customer_phone(self):
         phone = self.cleaned_data.get('customer_phone')
-        if not phone:
-            raise ValidationError("Please enter a phone number.")
-        elif len(phone) < 6:
-            raise ValidationError("The phone number must be at least 6 digits.")
-        elif not phone.isdigit():
+        if not phone.isdigit():
             raise ValidationError("Please enter a valid phone number.")
         return phone
-
-    def clean_address(self):
-        address = self.cleaned_data.get('address')
-        if not address:
-            raise ValidationError("Please enter an address.")
-        elif len(address) < 5:
-            raise ValidationError("The address must be at least 5 characters long.")
-        return address
-
-    def clean_quantity(self):
-        quantity = self.cleaned_data.get('quantity')
-        if not quantity:
-            raise ValidationError("Please enter a quantity.")
-        elif quantity <= 0:
-            raise ValidationError("Please enter a valid quantity.")
-        return quantity
-
-    def clean_products(self):
-        products = self.cleaned_data.get('products')
-        if not products:
-            raise ValidationError("Please select at least one product.")
-        return products
-
-    def clean(self):
-        phone = self.cleaned_data.get('customer_phone')
-        address = self.cleaned_data.get('address')
-        quantity = self.cleaned_data.get('quantity')
-        products = self.cleaned_data.get('products')
-
-        if quantity and not products:
-            raise ValidationError("Please enter products.")
-        elif phone and not address:
-            raise ValidationError("Please enter an address.")
-        return self.cleaned_data
-
-    class Meta:
-        model = Order
-        fields = ['customer_name', 'customer_email', 'customer_phone']
-        widgets = {
-            'customer_email': forms.EmailInput(attrs={'readonly': 'readonly'}),
-        }
-
 
 class CategoryForm(forms.ModelForm):
     def clean_name(self):
@@ -171,15 +136,35 @@ class ReviewForm(forms.Form):
     )
 
 class ProfileForm(forms.ModelForm):
-    email = forms.EmailField(disabled=True)
+    class ProfileForm(forms.ModelForm):
+        email = forms.EmailField(disabled=True)
 
+        class Meta:
+            model = Profile
+            fields = ['first_name',
+                      'last_name',
+                      'phone_number',
+                      'city',
+                      'address']
+            labels = {
+                'first_name': 'First Name',
+                'last_name': 'Last Name',
+                'phone_number': 'Phone Number',
+                'city': 'City',
+                'address': 'Address',
+            }
+
+class OrderItemForm(forms.ModelForm):
     class Meta:
-        model = Profile
-        fields = ['email', 'first_name', 'last_name', 'phone']
+        model = OrderItem
+        fields = ['flower', 'quantity']
 
-class OrderForm(forms.ModelForm):
-    user = forms.CharField(disabled=True)
 
+class TagForm(forms.ModelForm):
     class Meta:
-        model = Order
-        fields = ['user', 'address', 'notes']
+        model = Tag
+        fields = ['name', 'slug']
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Tag name'}),
+            'slug': forms.TextInput(attrs={'placeholder': 'tag-slug'}),
+        }

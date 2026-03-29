@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib import messages
 
 
@@ -59,3 +59,9 @@ def profile_view(request: HttpRequest) -> HttpResponse:
 def logout_view(request: HttpRequest) -> HttpResponse:
     logout(request)
     return redirect('home')
+
+def form_valid(self, form):
+    user = form.save()
+    customer_group = Group.objects.get(name='Customer')
+    user.groups.add(customer_group)
+    return super().form_valid(form)

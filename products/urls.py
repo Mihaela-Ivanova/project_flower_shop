@@ -3,7 +3,7 @@ from .views import (
     FlowerListView, FlowerDetailView,
     FlowerCreateView, FlowerUpdateView, FlowerDeleteView,
     CategoryListView, CategoryCreateView, CategoryUpdateView, CategoryDeleteView,
-    OrderCreateView
+    OrderCreateView, TagListView, TagCreateView, TagUpdateView, TagDeleteView, ReviewCreateView
 )
 
 urlpatterns = [
@@ -20,4 +20,9 @@ urlpatterns = [
     path('categories/<int:pk>/delete/', CategoryDeleteView.as_view(), name='category_delete'),
 
     path('order/', OrderCreateView.as_view(), name='order_create'),
+    path('tags/', TagListView.as_view(), name='tag-list'),
+    path('tags/create/', TagCreateView.as_view(), name='tag-create'),
+    path('tags/<int:pk>/edit/', TagUpdateView.as_view(), name='tag-edit'),
+    path('tags/<int:pk>/delete/', TagDeleteView.as_view(), name='tag-delete'),
+path('<int:pk>/review/', ReviewCreateView.as_view(), name='review_create'),
 ]
