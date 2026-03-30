@@ -1,4 +1,5 @@
-from django.core.validators import MinLengthValidator
+from django.contrib.auth.models import User
+from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
 
 
@@ -120,15 +121,12 @@ class OrderItem(models.Model):
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
-        related_name="items",
     )
     flower = models.ForeignKey(
         Flower,
         on_delete=models.CASCADE,
     )
-    quantity = models.PositiveIntegerField(
-        default=1,
-    )
+    quantity = models.PositiveIntegerField()
 
     class Meta:
         unique_together = ('order', 'flower')
@@ -153,11 +151,15 @@ class Review(models.Model):
         related_name='reviews'
     )
     user = models.ForeignKey(
-        Flower,
+        User,
         on_delete=models.CASCADE,
-        related_name='reviews'
+        related_name='user_reviews'
     )
-    rating = models.PositiveIntegerField()
+    rating = models.PositiveIntegerField(
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(5)]
+    )
     comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

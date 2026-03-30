@@ -63,18 +63,7 @@ class FlowerUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'products.change_flower'
 
     def get_object(self, queryset=None):
-        return self.request.user.profile
-
-    def get_initial(self):
-        initial = super().get_initial()
-        initial['email'] = self.request.user.email
-        return initial
-
-    def form_valid(self, form):
-        # Update User email if needed
-        user = self.request.user
-        user.email = form.cleaned_data['email']
-        user.save()
+        return super().get_object(queryset)
 
         return super().form_valid(form)
 
@@ -106,7 +95,6 @@ class CategoryUpdateView(PermissionRequiredMixin, UpdateView):
 
 class CategoryDeleteView(PermissionRequiredMixin, DeleteView):
     model = Category
-    form_class = CategoryDeleteForm
     template_name = 'products/category_confirm_delete.html'
     permission_required = 'products.delete_category'
     success_url = reverse_lazy('category_list')
@@ -115,7 +103,7 @@ class OrderCreateView(CreateView):
     model = Order
     form_class = OrderForm
     template_name = 'products/order_form.html'
-    success_url = reverse_lazy('order_create')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         # 1) Създаваме Order
@@ -179,11 +167,10 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         flower = Flower.objects.get(pk=self.kwargs['pk'])
-        profile = self.request.user.profile
 
         Review.objects.create(
             flower=flower,
-            user=profile,
+            user=self.request.user,
             rating=form.cleaned_data['rating'],
             comment=form.cleaned_data['comment']
         )

@@ -45,6 +45,9 @@ def register_view(request: HttpRequest) -> HttpResponse:
             password=password1
         )
 
+        customer_group = Group.objects.get(name='Customer')
+        user.groups.add(customer_group)
+
         login(request, user)
         return redirect('home')
 
@@ -59,9 +62,3 @@ def profile_view(request: HttpRequest) -> HttpResponse:
 def logout_view(request: HttpRequest) -> HttpResponse:
     logout(request)
     return redirect('home')
-
-def form_valid(self, form):
-    user = form.save()
-    customer_group = Group.objects.get(name='Customer')
-    user.groups.add(customer_group)
-    return super().form_valid(form)

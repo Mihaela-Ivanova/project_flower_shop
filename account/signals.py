@@ -1,12 +1,9 @@
+from django.db.models.signals import post_migrate
 from django.contrib.auth.models import Group
-from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.contrib.auth import get_user_model
 
-User = get_user_model()
-
-@receiver(post_save, sender=User)
-def add_user_to_customers_group(sender, instance, created, **kwargs):
-    if created:
-        group = Group.objects.get(name='Customers')
-        instance.groups.add(group)
+@receiver(post_migrate)
+def create_default_roles(sender, **kwargs):
+    if sender.name == "account":  # изпълнява се само за твоето app
+        Group.objects.get_or_create(name="Store Manager")
+        Group.objects.get_or_create(name="Customer")
