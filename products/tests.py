@@ -31,7 +31,7 @@ class ModelTests(TestCase):
         category = Category.objects.create(name="Roses")
         flower = Flower.objects.create(name="Red Rose", price=10, blooming_season="Spring", category=category)
 
-        review = Review.objects.create(flower=flower, user=profile, rating=5)
+        review = Review.objects.create(flower=flower, user=user, rating=5)
         self.assertEqual(review.rating, 5)
 
 from products.forms import FlowerForm, CategoryForm, OrderForm, ReviewForm

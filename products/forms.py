@@ -136,23 +136,24 @@ class ReviewForm(forms.Form):
     )
 
 class ProfileForm(forms.ModelForm):
-    class ProfileForm(forms.ModelForm):
-        email = forms.EmailField(disabled=True)
+    email = forms.EmailField(disabled=True)
 
-        class Meta:
-            model = Profile
-            fields = ['first_name',
-                      'last_name',
-                      'phone_number',
-                      'city',
-                      'address']
-            labels = {
-                'first_name': 'First Name',
-                'last_name': 'Last Name',
-                'phone_number': 'Phone Number',
-                'city': 'City',
-                'address': 'Address',
-            }
+    class Meta:
+        model = Profile
+        fields = [
+            'first_name',
+            'last_name',
+            'phone_number',
+            'city',
+            'address',
+        ]
+        labels = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'phone_number': 'Phone Number',
+            'city': 'City',
+            'address': 'Address',
+        }
 
 class OrderItemForm(forms.ModelForm):
     class Meta:
