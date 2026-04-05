@@ -9,10 +9,15 @@
     <div class="product-details">
 
         <div class="product-image">
-            {% if product.photo %}
-                <img src="{{ product.photo.url }}" alt="{{ product.name }}">
+            {% if product.image %}
+                <img src="{{ product.image }}"
+                     alt="{{ product.name }}"
+                     class="img-fluid"
+                     style="max-width: 500px; height: auto; object-fit: cover;">
             {% else %}
-                <img src="https://via.placeholder.com/500x500?text=No+Image" alt="No image">
+                <img src="https://via.placeholder.com/500x500?text=No+Image"
+                     alt="No image"
+                     class="img-fluid">
             {% endif %}
         </div>
 
@@ -21,7 +26,7 @@
 
             <p class="description">{{ product.description }}</p>
 
-            <div class="price">{{ product.price }} BGN</div>
+            <div class="price">{{ product.price }} €</div>
 
             <p><strong>Category:</strong> {{ product.category.name }}</p>
             <p><strong>Season:</strong> {{ product.blooming_season }}</p>

@@ -1,0 +1,324 @@
+[
+  {
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "name": "Roses",
+    "description": "Classic romantic flowers suitable for any occasion.",
+    "image": "https://images.unsplash.com/photo-1581938165093-050aeb5ef218?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJvc2VzfGVufDB8fDB8fHww"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "name": "Tulips",
+    "description": "Elegant spring flowers with vibrant colors.",
+     "image": "https://images.unsplash.com/photo-1488928741225-2aaf732c96cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHVsaXBzfGVufDB8fDB8fHww"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "Orchids",
+    "description": "Exotic flowers known for their beauty and longevity.",
+    "image": "https://images.unsplash.com/photo-1621448273078-36b4eac3e01f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fE9yY2hpZHN8ZW58MHx8MHx8fDA%3D"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "Bouquets",
+    "description": "Hand-crafted flower arrangements for special events.",
+    "image": "https://images.unsplash.com/photo-1652346072098-cfc2e94d30e7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEJvdXF1ZXRzfGVufDB8fDB8fHww"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 5,
+  "fields": {
+    "name": "Lilies",
+    "description": "Elegant lilies with strong fragrance and beauty.",
+    "image": "https://plus.unsplash.com/premium_photo-1713823800074-b3a0a8a9c3ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fExpbGllc3xlbnwwfHwwfHx8MA%3D%3D"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 6,
+  "fields": {
+    "name": "Sunflowers",
+    "description": "Bright and cheerful flowers symbolizing positivity.",
+    "image": "https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFN1bmZsb3dlcnN8ZW58MHx8MHx8fDA%3D"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 7,
+  "fields": {
+    "name": "Mixed Arrangements",
+    "description": "Creative combinations of seasonal flowers.",
+    "image": "https://images.unsplash.com/photo-1722553887036-03ae35f2ebc2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fE1peGVkJTIwQXJyYW5nZW1lbnRzfGVufDB8fDB8fHww"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 8,
+  "fields": {
+    "name": "Seasonal Flowers",
+    "description": "Flowers available only during specific seasons.",
+    "image":"https://images.unsplash.com/photo-1698266370906-4dc20ff62a8f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFNlYXNvbmFsJTIwRmxvd2Vyc3xlbnwwfHwwfHx8MA%3D%3D"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 9,
+  "fields": {
+    "name": "Wedding Flowers",
+    "description": "Premium arrangements for weddings and ceremonies.",
+    "image": "https://images.unsplash.com/photo-1521520368710-3ab197656d60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFdlZGRpbmclMjBGbG93ZXJzfGVufDB8fDB8fHww"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 10,
+  "fields": {
+    "name": "Indoor Plants",
+    "description": "Long-lasting plants suitable for home and office.",
+    "image": "https://images.unsplash.com/photo-1583753075968-1236ccb83c66?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8SW5kb29yJTIwUGxhbnRzfGVufDB8fDB8fHww"
+  }
+},
+    {
+  "model": "products.tag",
+  "pk": 1,
+  "fields": { "name": "Gift", "slug": "gift" }
+},
+{
+  "model": "products.tag",
+  "pk": 2,
+  "fields": { "name": "Romantic", "slug": "romantic" }
+},
+{
+  "model": "products.tag",
+  "pk": 3,
+  "fields": { "name": "Spring", "slug": "spring" }
+},
+{
+  "model": "products.tag",
+  "pk": 4,
+  "fields": { "name": "Luxury", "slug": "luxury" }
+},
+{
+  "model": "products.tag",
+  "pk": 5,
+  "fields": { "name": "Birthday", "slug": "birthday" }
+},
+{
+  "model": "products.tag",
+  "pk": 6,
+  "fields": { "name": "Anniversary", "slug": "anniversary" }
+},
+{
+  "model": "products.tag",
+  "pk": 7,
+  "fields": { "name": "Wedding", "slug": "wedding" }
+},
+{
+  "model": "products.tag",
+  "pk": 8,
+  "fields": { "name": "Get Well", "slug": "get-well" }
+},
+{
+  "model": "products.tag",
+  "pk": 9,
+  "fields": { "name": "Congratulations", "slug": "congratulations" }
+},
+{
+  "model": "products.tag",
+  "pk": 10,
+  "fields": { "name": "Sympathy", "slug": "sympathy" }
+},
+{
+  "model": "products.tag",
+  "pk": 11,
+  "fields": { "name": "Premium", "slug": "premium" }
+},
+{
+  "model": "products.tag",
+  "pk": 12,
+  "fields": { "name": "Exotic", "slug": "exotic" }
+},
+{
+  "model": "products.tag",
+  "pk": 13,
+  "fields": { "name": "Classic", "slug": "classic" }
+},
+{
+  "model": "products.tag",
+  "pk": 14,
+  "fields": { "name": "Minimalist", "slug": "minimalist" }
+},
+{
+  "model": "products.tag",
+  "pk": 15,
+  "fields": { "name": "Colorful", "slug": "colorful" }
+},
+{
+  "model": "products.tag",
+  "pk": 16,
+  "fields": { "name": "Seasonal", "slug": "seasonal" }
+},
+{
+  "model": "products.tag",
+  "pk": 17,
+  "fields": { "name": "Indoor", "slug": "indoor" }
+},
+{
+  "model": "products.tag",
+  "pk": 18,
+  "fields": { "name": "Outdoor", "slug": "outdoor" }
+},
+{
+  "model": "products.tag",
+  "pk": 19,
+  "fields": { "name": "Fragrant", "slug": "fragrant" }
+},
+{
+  "model": "products.tag",
+  "pk": 20,
+  "fields": { "name": "Handmade", "slug": "handmade" }
+},
+   {
+  "model": "products.flower",
+  "pk": 1,
+  "fields": {
+    "name": "Red Rose",
+    "description": "A classic red rose symbolizing love and passion.",
+    "price": "12.50",
+    "category": 1,
+    "image": "https://images.unsplash.com/photo-1660809412526-e012e51e2c99?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmVkJTIwcm9zZXxlbnwwfHwwfHx8MA%3D%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 2,
+  "fields": {
+    "name": "White Rose",
+    "description": "Elegant white rose representing purity and grace.",
+    "price": "11.00",
+    "category": 1,
+    "image": "https://images.unsplash.com/photo-1613680223747-5e96e603f6d6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdoaXRlJTIwcm9zZXxlbnwwfHwwfHx8MA%3D%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 3,
+  "fields": {
+    "name": "Pink Rose",
+    "description": "Soft pink rose perfect for gentle romantic gestures.",
+    "price": "10.90",
+    "category": 1,
+    "image": "https://images.unsplash.com/photo-1565573349860-cbf26ef3f40f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGluayUyMHJvc2V8ZW58MHx8MHx8fDA%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 4,
+  "fields": {
+    "name": "Yellow Tulip",
+    "description": "Bright yellow tulip symbolizing happiness and sunshine.",
+    "price": "8.50",
+    "category": 2,
+    "image": "https://images.unsplash.com/photo-1715513310454-247658144e29?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFllbGxvdyUyMFR1bGlwfGVufDB8fDB8fHww"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 5,
+  "fields": {
+    "name": "Purple Tulip",
+    "description": "Royal purple tulip with deep, rich color.",
+    "price": "9.20",
+    "category": 2,
+    "image": "https://images.unsplash.com/photo-1718657199563-9c040eb5efda?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8UHVycGxlJTIwVHVsaXB8ZW58MHx8MHx8fDA%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 6,
+  "fields": {
+    "name": "White Tulip",
+    "description": "Elegant white tulip perfect for spring celebrations.",
+    "price": "8.90",
+    "category": 2,
+    "image": "https://images.unsplash.com/photo-1620753328825-ff7389d45df0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8V2hpdGUlMjBUdWxpcHxlbnwwfHwwfHx8MA%3D%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 7,
+  "fields": {
+    "name": "Phalaenopsis Orchid",
+    "description": "A luxurious orchid with long-lasting blooms.",
+    "price": "35.00",
+    "category": 3,
+    "image": "https://images.unsplash.com/photo-1692386959339-3965eaf71953?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGhhbGFlbm9wc2lzJTIwT3JjaGlkfGVufDB8fDB8fHww"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 8,
+  "fields": {
+    "name": "Blue Orchid",
+    "description": "Rare blue orchid with stunning exotic appearance.",
+    "price": "42.00",
+    "category": 3,
+    "image": "https://images.unsplash.com/photo-1700832448236-7d1fd70a7685?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Qmx1ZSUyME9yY2hpZHxlbnwwfHwwfHx8MA%3D%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 9,
+  "fields": {
+    "name": "Mini Orchid",
+    "description": "Small and delicate orchid perfect for gifts.",
+    "price": "28.00",
+    "category": 3,
+    "image": "https://plus.unsplash.com/premium_photo-1706800282277-00813a772d5e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fE1pbmklMjBPcmNoaWR8ZW58MHx8MHx8fDA%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 10,
+  "fields": {
+    "name": "Romantic Red Bouquet",
+    "description": "A bouquet of red roses arranged with greenery.",
+    "price": "55.00",
+    "category": 4,
+    "image": "https://images.unsplash.com/photo-1769038934348-923a257f3ca7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFJvbWFudGljJTIwUmVkJTIwQm91cXVldHxlbnwwfHwwfHx8MA%3D%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 11,
+  "fields": {
+    "name": "Spring Mix Bouquet",
+    "description": "A colorful bouquet of tulips and seasonal flowers.",
+    "price": "48.00",
+    "category": 4,
+    "image": "https://images.unsplash.com/photo-1719390810835-0d47e57490ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFNwcmluZyUyME1peCUyMEJvdXF1ZXR8ZW58MHx8MHx8fDA%3D"
+  }
+},
+{
+  "model": "products.flower",
+  "pk": 12,
+  "fields": {
+    "name": "Luxury Orchid Bouquet",
+    "description": "Premium bouquet featuring orchids and roses.",
+    "price": "75.00",
+    "category": 4,
+    "image": "https://plus.unsplash.com/premium_photo-1668611400851-766fe4f6ac1a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8THV4dXJ5JTIwT3JjaGlkJTIwQm91cXVldHxlbnwwfHwwfHx8MA%3D%3D"
+  }
+}
+  ]

@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import (
     ListView, DetailView,
     CreateView, UpdateView, DeleteView
@@ -48,7 +48,7 @@ class FlowerDetailView(DetailView):
         context['reviews'] = self.object.reviews.all()
         return context
 
-class FlowerCreateView(PermissionRequiredMixin, CreateView):
+class FlowerCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Flower
     form_class = FlowerForm
     template_name = 'products/flower_form.html'
@@ -56,7 +56,7 @@ class FlowerCreateView(PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('products')
 
 
-class FlowerUpdateView(PermissionRequiredMixin, UpdateView):
+class FlowerUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Flower
     form_class = FlowerForm
     template_name = 'products/flower_form.html'
@@ -163,20 +163,16 @@ class TagDeleteView(DeleteView):
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review
     form_class = ReviewForm
-    template_name = 'products/review_form.html'
+    template_name = "products/review_form.html"
 
     def form_valid(self, form):
-        flower = Flower.objects.get(pk=self.kwargs['pk'])
+        form.instance.product_id = self.kwargs["pk"]
+        form.instance.user = self.request.user.userprofile
+        return super().form_valid(form)
 
-        Review.objects.create(
-            flower=flower,
-            user=self.request.user,
-            rating=form.cleaned_data['rating'],
-            comment=form.cleaned_data['comment']
-        )
+    def get_success_url(self):
+        return reverse("product_details", kwargs={"pk": self.kwargs["pk"]})
 
-        messages.success(self.request, "Your review has been submitted.")
-        return redirect('product_details', pk=flower.pk)
 
 def custom_404(request, exception):
     return render(request, '404.html', status=404)

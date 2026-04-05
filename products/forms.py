@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 from account.models import Profile
-from .models import Flower, Order, Category, OrderItem, Tag
+from .models import Flower, Order, Category, OrderItem, Tag, Review
 
 
 class FlowerForm(forms.ModelForm):
@@ -22,7 +22,7 @@ class FlowerForm(forms.ModelForm):
 
     class Meta:
         model = Flower
-        fields = ['name', 'description', 'price', 'blooming_season', 'in_stock', 'category', 'photo']
+        fields = ['name', 'description', 'price', 'blooming_season', 'in_stock', 'category', 'image']
         labels = {
             'name': 'Name',
             'description': 'Description',
@@ -30,7 +30,7 @@ class FlowerForm(forms.ModelForm):
             'blooming_season': 'Season',
             'in_stock': 'In Stock',
             'category': 'Category',
-            'photo': 'Photo',
+            'image': 'Image',
         }
         widgets = {
             'description': forms.Textarea(attrs={'rows': 3}),
@@ -119,21 +119,10 @@ class SearchForm(forms.Form):
     )
 
 
-class ReviewForm(forms.Form):
-    rating = forms.ChoiceField(
-        choices=[(i, str(i)) for i in range(1, 6)],
-        label="Rating",
-        widget=forms.Select(attrs={'class': 'form-select'})
-    )
-    comment = forms.CharField(
-        max_length=300,
-        required=False,
-        widget=forms.Textarea(attrs={
-            'placeholder': 'Write your review...',
-            'class': 'form-control',
-            'rows': 3
-        })
-    )
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ["rating", "comment"]
 
 class ProfileForm(forms.ModelForm):
     email = forms.EmailField(disabled=True)

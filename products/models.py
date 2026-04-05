@@ -19,6 +19,12 @@ class Category(models.Model):
         blank=True,
     )
 
+    image = models.URLField(
+        max_length=500,
+        blank=True,
+        null=True,
+    )
+
     def __str__(self):
         return self.name
 
@@ -40,10 +46,10 @@ class Flower(models.Model):
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
-    photo = models.ImageField(
-        upload_to='flowers/',
+    image = models.URLField(
+        max_length=500,
+        blank=True,
         null=True,
-        blank=True
     )
 
     category = models.ForeignKey(
@@ -144,27 +150,19 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+
 class Review(models.Model):
-    flower = models.ForeignKey(
+    product = models.ForeignKey(
         Flower,
         on_delete=models.CASCADE,
-        related_name='reviews'
+        related_name="reviews"
     )
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='user_reviews'
     )
-    rating = models.PositiveIntegerField(
-        validators=[
-            MinValueValidator(1),
-            MaxValueValidator(5)]
+    rating = models.IntegerField()
+    comment = models.TextField()
+    created_at = models.DateTimeField(
+        auto_now_add=True,
     )
-    comment = models.TextField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ['-created_at']
-
-    def __str__(self):
-        return f"Review {self.rating}/5 for {self.flower.name}"
