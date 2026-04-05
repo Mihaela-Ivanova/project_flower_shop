@@ -1,6 +1,3 @@
-/* ------------------------------
-   GLOBAL STYLE
---------------------------------*/
 body {
     background: linear-gradient(135deg, #ffe3ec 0%, #fff8f5 100%);
     font-family: "Poppins", sans-serif;
@@ -9,13 +6,11 @@ body {
     padding: 0;
 }
 
-/* Контейнер */
 .container {
     max-width: 1200px;
     margin: auto;
 }
 
-/* Основен розов цвят */
 :root {
     --pink: #e7a7b7;
     --dark-pink: #d67a92;
@@ -23,9 +18,6 @@ body {
     --brown: #5a4a42;
 }
 
-/* ------------------------------
-   HEADER
---------------------------------*/
 header {
     background: var(--cream);
     padding: 20px 40px;
@@ -57,9 +49,6 @@ nav a:hover {
     color: #d45f82;
 }
 
-/* ------------------------------
-   BUTTONS
---------------------------------*/
 .btn {
     background: var(--pink);
     color: white;
@@ -78,9 +67,6 @@ nav a:hover {
     background: var(--dark-pink);
 }
 
-/* ------------------------------
-   HERO SECTION
---------------------------------*/
 .hero {
     background: linear-gradient(135deg, #ffd6e5, #fff1f6);
     padding: 120px 40px;
@@ -104,9 +90,6 @@ nav a:hover {
     margin-bottom: 25px;
 }
 
-/* ------------------------------
-   PRODUCT GRID
---------------------------------*/
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -140,9 +123,6 @@ nav a:hover {
     font-weight: bold;
 }
 
-/* ------------------------------
-   BADGES
---------------------------------*/
 .badge {
     background: var(--dark-pink);
     color: white;
@@ -154,9 +134,6 @@ nav a:hover {
     margin-left: -10px;
 }
 
-/* ------------------------------
-   FORMS
---------------------------------*/
 form {
     background: white;
     padding: 30px;
@@ -172,9 +149,6 @@ form input, form select, form textarea {
     margin-bottom: 15px;
 }
 
-/* ------------------------------
-   FOOTER
---------------------------------*/
 footer {
     text-align: center;
     padding: 20px;
@@ -183,6 +157,7 @@ footer {
     border-top: 2px solid var(--pink);
     color: var(--brown);
 }
+
 footer p {
     margin: 0;
     font-size: 14px;
@@ -363,4 +338,63 @@ form input:focus, form textarea:focus, form select:focus {
         display: block;
     }
 }
+.review-box {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.review-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.review-box strong {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.review-box span {
+    background: #ffd700;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.review-box p {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.review-box small {
+    display: block;
+    margin-top: 10px;
+    color: #777;
+    font-size: 0.85rem;
+}
+
+h3 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.btn-secondary {
+    background-color: #6c63ff;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #584ee0;
+}

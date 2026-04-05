@@ -5,7 +5,7 @@ from django.views.generic import (
     CreateView, UpdateView, DeleteView
 )
 from django.contrib.auth.mixins import (
-    LoginRequiredMixin, PermissionRequiredMixin
+    LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 )
 from django.shortcuts import render, redirect
 from .models import Flower, Category, Order, Tag, OrderItem, Review
@@ -14,7 +14,6 @@ from .forms import (
     OrderForm, CategoryDeleteForm, SearchForm, ReviewForm, TagForm
 )
 from .tasks import send_order_confirmation_email
-
 
 
 class FlowerListView(ListView):
@@ -167,11 +166,21 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.product_id = self.kwargs["pk"]
-        form.instance.user = self.request.user.userprofile
+        form.instance.user = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):
         return reverse("product_details", kwargs={"pk": self.kwargs["pk"]})
+
+class ReviewDeleteView(UserPassesTestMixin, DeleteView):
+    model = Review
+    template_name = "products/review_confirm_delete.html"
+
+    def test_func(self):
+        return self.request.user.is_superuser  # само admin
+
+    def get_success_url(self):
+        return reverse("product_details", kwargs={"pk": self.object.product.pk})
 
 
 def custom_404(request, exception):

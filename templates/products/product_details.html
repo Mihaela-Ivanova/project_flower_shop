@@ -50,10 +50,13 @@
 
     {% for review in reviews %}
         <div class="review-box">
-            <strong>{{ review.user.user.username }}</strong>
+            <strong>{{ review.user.username }}</strong>
             <span>{{ review.rating }}/5</span>
             <p>{{ review.comment }}</p>
-            <small>{{ review.created_at }}</small>
+            <small>{{ review.created_at|date:"d.m.Y H:i" }}</small>
+            {% if user.is_superuser %}
+                <a href="{% url 'review_delete' review.pk %}" class="btn delete-btn">Delete</a>
+            {% endif %}
         </div>
     {% empty %}
         <p>No reviews yet.</p>

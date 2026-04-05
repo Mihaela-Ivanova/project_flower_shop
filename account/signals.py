@@ -1,9 +1,23 @@
-from django.db.models.signals import post_migrate
-from django.contrib.auth.models import Group
+from django.db.models.signals import post_migrate, post_save
 from django.dispatch import receiver
+from django.contrib.auth.models import Group, User
+from .models import Profile
+
 
 @receiver(post_migrate)
 def create_default_roles(sender, **kwargs):
-    if sender.name == "account":  # изпълнява се само за твоето app
+    if sender.name == "account":
         Group.objects.get_or_create(name="Store Manager")
         Group.objects.get_or_create(name="Customer")
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    if hasattr(instance, "profile"):
+        instance.profile.save()
