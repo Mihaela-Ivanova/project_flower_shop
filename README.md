@@ -26,79 +26,79 @@ It provides a complete product catalog, categories, tags, product details, order
 - Clean Architecture: services + selectors
 
 # 🏷 Categories & Tags
-• 	Full CRUD for categories
-• 	Full CRUD for tags
-• 	Delete confirmation pages
-• 	Slug support for tags
-• 	Category listing page
+- Full CRUD for categories
+- Full CRUD for tags
+- Delete confirmation pages
+- Slug support for tags
+- Category listing page
 
 # ⭐ Reviews
-• 	Authenticated users can leave reviews
-• 	Rating (1–5) + comment
-• 	Reviews displayed on product detail page
-• 	Admins can delete reviews
+- Authenticated users can leave reviews
+- Rating (1–5) + comment
+- Reviews displayed on product detail page
+- Admins can delete reviews
 
 # 🛒 Orders
-• 	Order creation from product detail page
-• 	Customer name, email, phone, address, notes
-• 	Quantity selection
-• 	OrderItem model (supports multiple items per order)
-• 	Email confirmation via Celery (async task)
+- Order creation from product detail page
+- Customer name, email, phone, address, notes
+- Quantity selection
+- OrderItem model (supports multiple items per order)
+- Email confirmation via Celery (async task)
 
 # 👤 User Management
-• 	User registration
-• 	Login / logout
-• 	Profile page
-• 	Edit profile information
-• 	Customers can:
-• 	place orders
-• 	write reviews
-• 	update their profile
+- User registration
+- Login / logout
+- Profile page
+- Edit profile information
+- Customers can:
+- place orders
+- write reviews
+- update their profile
 
 # 🔐 Permissions & Roles
 
 The project uses Django Groups to define two roles:
 
 Store Manager
-• 	Add/edit/delete flowers
-• 	Manage categories
-• 	Manage tags
-• 	View orders
+- Add/edit/delete flowers
+- Manage categories
+- Manage tags
+- View orders
 
 Customer
-• 	Place orders
-• 	Write reviews
-• 	Edit profile
+- Place orders
+- Write reviews
+- Edit profile
 
 Permissions enforced via:
-• 	Django Groups
-• 	Permissino Required Mixin
-• 	Template‑level permission checks
+- Django Groups
+- Permissino Required Mixin
+- Template‑level permission checks
 
 # 🧱 Technologies Used
 
 Backend
-• 	Python 3.13
-• 	Django 6.0.2
-• 	Django ORM
-• 	Django Templates
-• 	Django Forms / ModelForms
-• 	Django REST Framework
-• 	Celery (asynchronous tasks)
+- Python 3.13
+- Django 6.0.2
+- Django ORM
+- Django Templates
+- Django Forms / ModelForms
+- Django REST Framework
+- Celery (asynchronous tasks)
 
 Frontend
-• 	HTML5
-• 	CSS3
-• 	Custom responsive layout
+- HTML5
+- CSS3
+- Custom responsive layout
 
 Database
-• 	PostgreSQL (Render managed database)
+- PostgreSQL (Render managed database)
 
 Deployment
-• Render Web Service
-• Gunicorn
-• Whitenoise
-• Environment variables via .env
+- Render Web Service
+- Gunicorn
+- Whitenoise
+- Environment variables via .env
 
 # 🌐 REST API (DRF)
 
@@ -106,22 +106,22 @@ GET /api/flowers/
 Returns a list of flowers.
 
 Query parameters:
-• 	category
-• 	tag
-• 	season
-• 	search
+- category
+- tag
+- season
+- search
 
 GET /api/flowers/<id>/
 Returns details for a single flower.
 
 # 🧪 Tests
 The project includes automated tests covering:
-• 	Models
-• 	Forms
-• 	Views
-• 	API endpoints
-• 	Template filters
-• 	Permissions
+- Models
+- Forms
+- Views
+- API endpoints
+- Template filters
+- Permissions
 
 # 📁 Project Structure
 
@@ -185,10 +185,10 @@ Project/
 
 # 🚀 Future Improvements
 
-• 	Wishlist / Favorites
-• 	Shopping cart
-• 	Stripe payments
-• 	Email verification
-• 	Full REST API for orders
-• 	Store Manager dashboard
-• 	Product recommendations
+- Wishlist / Favorites
+- Shopping cart
+- Stripe payments
+- Email verification
+- Full REST API for orders
+- Store Manager dashboard
+- Product recommendations
