@@ -4,7 +4,7 @@ FlowerShop is a modern, full‑featured Django web application designed as an on
 It provides a complete product catalog, categories, tags, product details, order creation, user accounts, reviews, REST API, admin management, and a clean, elegant UI.
 
 # 🌐 Live Demo
-🔗 flowershop-hsawd4anb2h0h5h7.spaincentral-01.azurewebsites.net
+🔗  flowershop-hsawd4anb2h0h5h7.spaincentral-01.azurewebsites.net
 
 # ✨ Key Features
 # 🏠 Public Section
