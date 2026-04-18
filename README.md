@@ -125,39 +125,9 @@ The project includes automated tests covering:
 
 # 📁 Project Structure
 
-Project/
-│
-├── account/
-│   ├── views.py
-│   ├── services/
-│   ├── selectors/
-│   └── forms.py
-│
-├── common/
-│   ├── views.py
-│   ├── services/
-│   ├── selectors/
-│   └── forms.py
-│
-├── products/
-│   ├── views.py
-│   ├── services/
-│   ├── selectors/
-│   ├── models.py
-│   ├── forms.py
-│   └── urls.py
-│
-├── templates/
-│   ├── base.html
-│   ├── products/
-│   ├── account/
-│   └── common/
-│
-├── static/
-├── media/
-├── requirements.txt
-├── manage.py
-└── README.md
+Project
+
+<img width="677" height="612" alt="structure" src="https://github.com/user-attachments/assets/ef023278-40fd-45d1-8437-38b66f076a01" />
 
 
 # ▶️ Running the Project (Local Development)
