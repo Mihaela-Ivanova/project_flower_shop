@@ -1,141 +1,177 @@
-# 🌸 FlowerShop — Modern Django Web Application  
-FlowerShop is a modern Django web application designed as an online flower shop.  
-The project includes a product catalog, categories, product details, order creation, user accounts, reviews, and a clean, elegant interface.
+🌸 FlowerShop — Modern Django Web Application
+FlowerShop is a modern, full‑featured Django web application designed as an online flower shop.
+It provides a complete product catalog, categories, tags, product details, order creation, user accounts, reviews, REST API, admin management, and a clean, elegant UI.
 
----
+✨ Key Features
+🏠 Public Section
+- Home page with featured flowers
+- Product catalog with search and filtering
+- Product detail pages
+- Contact form
+- User registration & login
+- Custom 404 & 500 error pages
 
-# ✨ Key Features
+🌸 Products (Flowers)
+- Full CRUD (create, read, update, delete)
+- Image upload
+- Blooming season
+- In‑stock indicator
+- Category assignment
+- Tags (Many‑to‑Many)
+- Search functionality
+- Clean Architecture: services + selectors
 
-## 🏠 Public Section
-- Home page with featured flowers  
-- Product catalog with filtering and search  
-- Product details page  
-- Contact form  
-- User registration & login  
-- Custom 404 & 500 pages  
+🏷 Categories & Tags
+• 	Full CRUD for categories
+• 	Full CRUD for tags
+• 	Delete confirmation pages
+• 	Slug support for tags
+• 	Category listing page
 
-## 🌸 Products (Flowers)
-- List, detail, create, edit, delete  
-- Image upload  
-- Blooming season  
-- In‑stock indicator  
-- Category assignment  
-- Tags (Many‑to‑Many)  
-- Search functionality  
+⭐ Reviews
+• 	Authenticated users can leave reviews
+• 	Rating (1–5) + comment
+• 	Reviews displayed on product detail page
+• 	Admins can delete reviews
 
-## 🏷 Categories & Tags
-- Full CRUD for categories  
-- Full CRUD for tags  
-- Category delete confirmation form (read‑only)  
-- Tag slugs  
+🛒 Orders
+• 	Order creation from product detail page
+• 	Customer name, email, phone, address, notes
+• 	Quantity selection
+• 	OrderItem model (supports multiple items per order)
+• 	Email confirmation via Celery (async task)
 
-## 👤 User Management
-- User registration & login  
-- User profile page  
-- Edit profile information  
-- Order creation  
-- Order notes  
-- Delivery address  
+👤 User Management
+• 	User registration
+• 	Login / logout
+• 	Profile page
+• 	Edit profile information
+• 	Customers can:
+• 	place orders
+• 	write reviews
+• 	update their profile
 
-## ⭐ Reviews
-- Authenticated users can leave reviews  
-- Rating + comment  
-- Reviews displayed on product detail page  
-
-## 🗂️ Administration
-- Manage products  
-- Manage categories  
-- Manage tags  
-- Manage orders  
-- Manage users  
-- Manage media files  
-
----
-
-# 🧱 Technologies Used
-
-### Backend
-- Python 3.13  
-- Django 6.0.2  
-- Django ORM  
-- Django Templates  
-- Django Forms / ModelForms  
-- Django REST Framework  
-- Celery (async tasks)  
-
-### Frontend
-- HTML5  
-- CSS3  
-- Custom responsive layout  
-
-### Database
-- PostgreSQL (Render managed database)
-
-### Deployment
-- Render Web Service  
-- Gunicorn  
-- Whitenoise  
-- Environment variables via `.env`  
-
----
-
-# 🔐 Permissions & Groups
-
-Two user roles:
-
-### Store Manager
-- Add/edit/delete flowers  
-- Manage categories  
-- Manage tags  
-- View orders  
-
-### Customer
-- Place orders  
-- Write reviews  
-- Edit profile  
-
+🔐 Permissions & Roles
+The project uses Django Groups to define two roles:
+Store Manager
+• 	Add/edit/delete flowers
+• 	Manage categories
+• 	Manage tags
+• 	View orders
+Customer
+• 	Place orders
+• 	Write reviews
+• 	Edit profile
 Permissions enforced via:
-- Django Groups  
-- PermissionRequiredMixin  
-- Template-level permission checks  
+• 	Django Groups
+• 	
+• 	Template‑level permission checks
 
----
+🧱 Technologies Used
+Backend
+• 	Python 3.13
+• 	Django 6.0.2
+• 	Django ORM
+• 	Django Templates
+• 	Django Forms / ModelForms
+• 	Django REST Framework
+• 	Celery (asynchronous tasks)
+Frontend
+• 	HTML5
+• 	CSS3
+• 	Custom responsive layout
+Database
+• 	PostgreSQL (Render managed database)
+Deployment
+- Render Web Service
+- Gunicorn
+- Whitenoise
+- Environment variables via .env
 
-# 🌐 REST API (DRF)
-
-### GET `/api/flowers/`
-Returns list of flowers.
-
+🌐 REST API (DRF)
+GET /api/flowers/
+Returns a list of flowers.
 Query parameters:
-- `category`
-- `tag`
-- `season`
-- `search`
-
-### GET `/api/flowers/<id>/`
+• 	category
+• 	tag
+• 	season
+• 	search
+GET /api/flowers/<id>/
 Returns details for a single flower.
 
----
+🧪 Tests
+The project includes automated tests covering:
+• 	Models
+• 	Forms
+• 	Views
+• 	API endpoints
+• 	Template filters
+• 	Permissions
 
-# 🧪 Tests  
+📁 Project Structure
 
-The project includes **15 automated tests** covering:
+Project/
+│
+├── account/
+│   ├── views.py
+│   ├── services/
+│   ├── selectors/
+│   └── forms.py
+│
+├── common/
+│   ├── views.py
+│   ├── services/
+│   ├── selectors/
+│   └── forms.py
+│
+├── products/
+│   ├── views.py
+│   ├── services/
+│   ├── selectors/
+│   ├── models.py
+│   ├── forms.py
+│   └── urls.py
+│
+├── templates/
+│   ├── base.html
+│   ├── products/
+│   ├── account/
+│   └── common/
+│
+├── static/
+├── media/
+├── requirements.txt
+├── manage.py
+└── README.md
 
-- Models  
-- Forms  
-- Views  
-- API  
-- Template filters  
 
----
+▶️ Running the Project (Local Development)
+1. Clone the repository
+    git clone <repo-url>
+    cd Project
 
-# 📁 Project Structure
+2. Create a virtual environment
+    python -m venv .venv
+    source .venv/bin/activate      # Linux/Mac
+    .venv\Scripts\activate         # Windows
 
-<img src="images/project-structure.svg" width="400">
+3. Install dependencies
+    pip install -r requirements.txt
+   
+5. Apply migrations
+   python manage.py migrate
+   
+7. Create a superuser
+   python manage.py createsuperuser
+   
+9. Run the development server
+   python manage.py runserver
 
----
-
-# ▶️ Running the Project (Local Development)
-
-<img src="images/running-the-project.svg" width="400">
-
+🚀 Future Improvements
+• 	Wishlist / Favorites
+• 	Shopping cart
+• 	Stripe payments
+• 	Email verification
+• 	Full REST API for orders
+• 	Store Manager dashboard
+• 	Product recommendations
