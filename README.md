@@ -125,8 +125,6 @@ The project includes automated tests covering:
 
 # 📁 Project Structure
 
-Project
-
 <img width="677" height="612" alt="structure" src="https://github.com/user-attachments/assets/ef023278-40fd-45d1-8437-38b66f076a01" />
 
 
