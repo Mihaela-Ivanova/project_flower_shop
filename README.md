@@ -1,12 +1,13 @@
-#🌸 FlowerShop — Modern Django Web Application
+# 🌸 FlowerShop 
+Modern Django Web Application
 FlowerShop is a modern, full‑featured Django web application designed as an online flower shop.
 It provides a complete product catalog, categories, tags, product details, order creation, user accounts, reviews, REST API, admin management, and a clean, elegant UI.
 
-#🌐 Live Demo
+# 🌐 Live Demo
 🔗 flowershop-hsawd4anb2h0h5h7.spaincentral-01.azurewebsites.net
 
-#✨ Key Features
-🏠 Public Section
+# ✨ Key Features
+# 🏠 Public Section
 - Home page with featured flowers
 - Product catalog with search and filtering
 - Product detail pages
@@ -14,7 +15,7 @@ It provides a complete product catalog, categories, tags, product details, order
 - User registration & login
 - Custom 404 & 500 error pages
 
-#🌸 Products (Flowers)
+# 🌸 Products (Flowers)
 - Full CRUD (create, read, update, delete)
 - Image upload
 - Blooming season
@@ -24,27 +25,27 @@ It provides a complete product catalog, categories, tags, product details, order
 - Search functionality
 - Clean Architecture: services + selectors
 
-#🏷 Categories & Tags
+# 🏷 Categories & Tags
 • 	Full CRUD for categories
 • 	Full CRUD for tags
 • 	Delete confirmation pages
 • 	Slug support for tags
 • 	Category listing page
 
-#⭐ Reviews
+# ⭐ Reviews
 • 	Authenticated users can leave reviews
 • 	Rating (1–5) + comment
 • 	Reviews displayed on product detail page
 • 	Admins can delete reviews
 
-#🛒 Orders
+# 🛒 Orders
 • 	Order creation from product detail page
 • 	Customer name, email, phone, address, notes
 • 	Quantity selection
 • 	OrderItem model (supports multiple items per order)
 • 	Email confirmation via Celery (async task)
 
-#👤 User Management
+# 👤 User Management
 • 	User registration
 • 	Login / logout
 • 	Profile page
@@ -54,23 +55,28 @@ It provides a complete product catalog, categories, tags, product details, order
 • 	write reviews
 • 	update their profile
 
-#🔐 Permissions & Roles
+# 🔐 Permissions & Roles
+
 The project uses Django Groups to define two roles:
+
 Store Manager
 • 	Add/edit/delete flowers
 • 	Manage categories
 • 	Manage tags
 • 	View orders
+
 Customer
 • 	Place orders
 • 	Write reviews
 • 	Edit profile
+
 Permissions enforced via:
 • 	Django Groups
-• 	
+• 	Permissino Required Mixin
 • 	Template‑level permission checks
 
-#🧱 Technologies Used
+# 🧱 Technologies Used
+
 Backend
 • 	Python 3.13
 • 	Django 6.0.2
@@ -79,30 +85,36 @@ Backend
 • 	Django Forms / ModelForms
 • 	Django REST Framework
 • 	Celery (asynchronous tasks)
+
 Frontend
 • 	HTML5
 • 	CSS3
 • 	Custom responsive layout
+
 Database
 • 	PostgreSQL (Render managed database)
-Deployment
-- Render Web Service
-- Gunicorn
-- Whitenoise
-- Environment variables via .env
 
-#🌐 REST API (DRF)
+Deployment
+• Render Web Service
+• Gunicorn
+• Whitenoise
+• Environment variables via .env
+
+# 🌐 REST API (DRF)
+
 GET /api/flowers/
 Returns a list of flowers.
+
 Query parameters:
 • 	category
 • 	tag
 • 	season
 • 	search
+
 GET /api/flowers/<id>/
 Returns details for a single flower.
 
-#🧪 Tests
+# 🧪 Tests
 The project includes automated tests covering:
 • 	Models
 • 	Forms
@@ -111,7 +123,7 @@ The project includes automated tests covering:
 • 	Template filters
 • 	Permissions
 
-#📁 Project Structure
+# 📁 Project Structure
 
 Project/
 │
@@ -148,7 +160,8 @@ Project/
 └── README.md
 
 
-#▶️ Running the Project (Local Development)
+# ▶️ Running the Project (Local Development)
+
 1. Clone the repository
     git clone <repo-url>
     cd Project
@@ -170,7 +183,8 @@ Project/
 9. Run the development server
    python manage.py runserver
 
-#🚀 Future Improvements
+# 🚀 Future Improvements
+
 • 	Wishlist / Favorites
 • 	Shopping cart
 • 	Stripe payments
